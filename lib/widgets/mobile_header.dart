@@ -12,6 +12,7 @@ class MobileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: MiniMartAppColors.white,
         border: const Border(
@@ -21,7 +22,6 @@ class MobileHeader extends StatelessWidget {
           ),
         ),
       ),
-      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           Row(

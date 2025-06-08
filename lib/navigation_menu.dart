@@ -24,68 +24,72 @@ class NavigationMenu extends StatelessWidget {
       create: (_) => NavigationBloc(),
       child: BlocBuilder<NavigationBloc, NavigationState>(
         builder: (context, state) {
-          return Scaffold(
-            //backgroundColor: MiniMartAppColors.white,
-            bottomNavigationBar: NavigationBarTheme(
-              data: NavigationBarThemeData(
-                labelTextStyle: WidgetStateProperty.resolveWith((states) {
-                  if (states.contains(WidgetState.selected)) {
-                    return TextStyle(
-                      color: MiniMartAppColors.primary,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                      height: 16 / 12, // line-height ÷ font-size → 1.33
-                      letterSpacing: 0.5,
-                    );
-                  }
-                  return const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: MiniMartAppColors.onSurfaceVariant,
-                      fontSize: 12,
-                      height: 16 / 12, // line-height ÷ font-size → 1.33
-                      letterSpacing: 0.5,
-                  );
-                }),
+          return SafeArea(
+            child: Scaffold(
+              //backgroundColor: MiniMartAppColors.white,
+              bottomNavigationBar: SafeArea(
+                child: NavigationBarTheme(
+                  data: NavigationBarThemeData(
+                    labelTextStyle: WidgetStateProperty.resolveWith((states) {
+                      if (states.contains(WidgetState.selected)) {
+                        return TextStyle(
+                          color: MiniMartAppColors.primary,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          height: 16 / 12, // line-height ÷ font-size → 1.33
+                          letterSpacing: 0.5,
+                        );
+                      }
+                      return const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: MiniMartAppColors.onSurfaceVariant,
+                          fontSize: 12,
+                          height: 16 / 12, // line-height ÷ font-size → 1.33
+                          letterSpacing: 0.5,
+                      );
+                    }),
+                  ),
+                  child: NavigationBar(
+                    //height: 90,
+                    backgroundColor: MiniMartAppColors.white,
+                    labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+                    indicatorColor: Colors.transparent,
+                    selectedIndex: state.selectedIndex,
+                    onDestinationSelected:
+                        (index) => context.read<NavigationBloc>().add(
+                          NavigationTabChanged(index),
+                        ),
+                    destinations: [
+                      NavigationItem(
+                        icon: HugeIcons.strokeRoundedHome07,
+                        label: 'Home',
+                        index: 0,
+                        selectedIndex: state.selectedIndex,
+                      ),
+                      NavigationItem(
+                        icon: HugeIcons.strokeRoundedShoppingCart02,
+                        label: 'Cart',
+                        index: 1,
+                        selectedIndex: state.selectedIndex,
+                      ),
+                      NavigationItem(
+                        icon: HugeIcons.strokeRoundedFavourite,
+                        label: 'Favorites',
+                        index: 2,
+                        selectedIndex: state.selectedIndex,
+                      ),
+                      NavigationItem(
+                        icon: HugeIcons.strokeRoundedUserCircle,
+                        label: 'Vendors',
+                        index: 3,
+                        selectedIndex: state.selectedIndex,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              child: NavigationBar(
-                //height: 90,
-                backgroundColor: MiniMartAppColors.white,
-                labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-                indicatorColor: Colors.transparent,
-                selectedIndex: state.selectedIndex,
-                onDestinationSelected:
-                    (index) => context.read<NavigationBloc>().add(
-                      NavigationTabChanged(index),
-                    ),
-                destinations: [
-                  NavigationItem(
-                    icon: HugeIcons.strokeRoundedHome07,
-                    label: 'Home',
-                    index: 0,
-                    selectedIndex: state.selectedIndex,
-                  ),
-                  NavigationItem(
-                    icon: HugeIcons.strokeRoundedShoppingCart02,
-                    label: 'Cart',
-                    index: 1,
-                    selectedIndex: state.selectedIndex,
-                  ),
-                  NavigationItem(
-                    icon: HugeIcons.strokeRoundedFavourite,
-                    label: 'Favorites',
-                    index: 2,
-                    selectedIndex: state.selectedIndex,
-                  ),
-                  NavigationItem(
-                    icon: HugeIcons.strokeRoundedUserCircle,
-                    label: 'Vendors',
-                    index: 3,
-                    selectedIndex: state.selectedIndex,
-                  ),
-                ],
-              ),
+              body: screens[state.selectedIndex],
             ),
-            body: screens[state.selectedIndex],
           );
         },
       ),
