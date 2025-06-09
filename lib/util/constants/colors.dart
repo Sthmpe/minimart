@@ -9,12 +9,6 @@ class MiniMartAppColors {
   static const Color accent = Color(0xFFb0c7ff);
   static const Color headerText = Color(0xFF334155);
 
-  // Gradient Colors
-  static const Gradient linearGradient = LinearGradient(
-    begin: Alignment(0.0, 0.0),
-    end: Alignment(0.707, -0.707),
-    colors: [Color(0xffff9a9e), Color(0xfffad0c4), Color(0xfffad0c4)],
-  );
 
   // Text Basic Colors
   static const Color textPrimary = Color(0xFF333333);
@@ -42,6 +36,7 @@ class MiniMartAppColors {
   // Errors And Validation Colors
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0XFF388E3C);
+  static const Color success500 = Color(0XFF10B981);
   static const Color warning = Color(0XFFF57C00);
   static const Color info = Color(0xFF1976D2);
 
@@ -54,6 +49,7 @@ class MiniMartAppColors {
   static const Color grey300 = Color(0xFFCBD5E1);
   static const Color grey400 = Color(0xFF94A3B8);
   static const Color grey500 = Color(0xFF64748B);
+  static const Color grey700 = Color(0xFF334155);
   static const Color softGrey = Color(0xFFF4F4F4);
   static const Color lightGrey = Color(0xFFF9F9F9);
   static const Color white = Color(0xFFFFFFFF);
@@ -61,6 +57,8 @@ class MiniMartAppColors {
   // Others color
   static const Color onSurfaceVariant = Color(0xFF49454F);
   static const Color kitSectionFill = Color(0xFFF5F5F5);
+  static const Color unSelected = Color(0xFF999999);
+  static const Color pink = Color(0xFFFF2D55);
   static const Color red = Color(0xFFD32F2F);
   static const Color green = Color(0xFF43A047);
   static const Color yellow = Color(0xFFFDD835);

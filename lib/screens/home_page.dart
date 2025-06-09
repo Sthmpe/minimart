@@ -29,8 +29,7 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -64,17 +63,17 @@ class HomePage extends StatelessWidget {
                         return GestureDetector(
                           onTap: () {
                             Get.to(
-                              () => ProductDetails(), 
+                              () => ProductDetails(),
                               arguments: product,
                               curve: Curves.easeOut,
-                              duration: 300.milliseconds
+                              duration: 300.milliseconds,
                             );
                           },
                           child: HomeProductCard(
                             imageUrl: product.imagePath,
                             title: product.name,
                             color: product.color,
-                            price: product.price, 
+                            price: product.price,
                           ),
                         );
                       },

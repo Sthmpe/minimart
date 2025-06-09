@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:minimart/util/constants/colors.dart';
 
 class HomeProductCard extends StatelessWidget {
   final String imageUrl;
@@ -27,12 +26,13 @@ class HomeProductCard extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 1.0, // Ensures the image is square
-            child: SizedBox(
-              width: 162,
-              height: 162,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.62),
               child: Image.asset(
                 imageUrl,
                 fit: BoxFit.cover,
+                width: 162,
+                height: 162,
               ),
             ),
           ),
